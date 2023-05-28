@@ -19,6 +19,7 @@
 		9F25584E2A23A29700D5E912 /* CheckoutDetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25584D2A23A29700D5E912 /* CheckoutDetailsFooterView.swift */; };
 		9F2558502A23B84800D5E912 /* CheckoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25584F2A23B84700D5E912 /* CheckoutButton.swift */; };
 		9F2558562A23C91200D5E912 /* UITextField+TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */; };
+		9F341B622A23F0DA00948AB6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F341B612A23F0DA00948AB6 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9F25584D2A23A29700D5E912 /* CheckoutDetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDetailsFooterView.swift; sourceTree = "<group>"; };
 		9F25584F2A23B84700D5E912 /* CheckoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutButton.swift; path = ../../../../../../../../Documents/CheckoutButton.swift; sourceTree = "<group>"; };
 		9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextPublisher.swift"; sourceTree = "<group>"; };
+		9F341B612A23F0DA00948AB6 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				9F2558462A2374C400D5E912 /* Constants.swift */,
+				9F341B612A23F0DA00948AB6 /* Assets.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F2558502A23B84800D5E912 /* CheckoutButton.swift in Sources */,
+				9F341B622A23F0DA00948AB6 /* Assets.swift in Sources */,
 				9F25584E2A23A29700D5E912 /* CheckoutDetailsFooterView.swift in Sources */,
 				9F2558442A2370F800D5E912 /* CheckoutDetailsInputView.swift in Sources */,
 				9F25584A2A23801E00D5E912 /* CheckoutTextField.swift in Sources */,
@@ -285,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -339,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -361,8 +365,11 @@
 				INFOPLIST_FILE = "Payment-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,8 +395,11 @@
 				INFOPLIST_FILE = "Payment-App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
