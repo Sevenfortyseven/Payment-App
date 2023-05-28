@@ -7,22 +7,22 @@
 
 import UIKit
 
-struct Constants {
-
-    struct Spacing {
+enum Constants {
+    
+    enum Spacing {
         static let large: CGFloat = 50.0
         static let medium: CGFloat = 20.0
         static let small: CGFloat = 5.0
     }
 
-    struct Offset {
+    enum Offset {
         static let leading: CGFloat = 30.0
         static let trailing: CGFloat = -30.0
         static let top: CGFloat = 30.0
         static let bot: CGFloat = -30.0
     }
 
-    struct Height {
+    enum Height {
         static let divider: CGFloat = 0.3
         static let checkoutTextField: CGFloat = 50.0
         static let roundButton: CGFloat = 50.0
