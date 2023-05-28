@@ -18,6 +18,7 @@
 		9F25584A2A23801E00D5E912 /* CheckoutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2558492A23801E00D5E912 /* CheckoutTextField.swift */; };
 		9F25584E2A23A29700D5E912 /* CheckoutDetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25584D2A23A29700D5E912 /* CheckoutDetailsFooterView.swift */; };
 		9F2558502A23B84800D5E912 /* CheckoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25584F2A23B84700D5E912 /* CheckoutButton.swift */; };
+		9F2558562A23C91200D5E912 /* UITextField+TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9F2558492A23801E00D5E912 /* CheckoutTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTextField.swift; sourceTree = "<group>"; };
 		9F25584D2A23A29700D5E912 /* CheckoutDetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDetailsFooterView.swift; sourceTree = "<group>"; };
 		9F25584F2A23B84700D5E912 /* CheckoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutButton.swift; path = ../../../../../../../../Documents/CheckoutButton.swift; sourceTree = "<group>"; };
+		9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextPublisher.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		9F2558482A237FD500D5E912 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				9F2558442A2370F800D5E912 /* CheckoutDetailsInputView.swift in Sources */,
 				9F25584A2A23801E00D5E912 /* CheckoutTextField.swift in Sources */,
 				9F25582B2A235A8400D5E912 /* CheckoutViewController.swift in Sources */,
+				9F2558562A23C91200D5E912 /* UITextField+TextPublisher.swift in Sources */,
 				9F2558272A235A8400D5E912 /* AppDelegate.swift in Sources */,
 				9F2558292A235A8400D5E912 /* SceneDelegate.swift in Sources */,
 				9F2558422A236D1500D5E912 /* CheckoutViewModel.swift in Sources */,

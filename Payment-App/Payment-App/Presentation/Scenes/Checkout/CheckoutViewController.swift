@@ -5,6 +5,7 @@
 //  Created by aleksandre on 28.05.23.
 //
 
+import Combine
 import UIKit
 
 final class CheckoutViewController: UIViewController {
@@ -15,6 +16,7 @@ final class CheckoutViewController: UIViewController {
     var checkoutDetailsInputView: CheckoutDetailsInputView = CheckoutDetailsInputView()
     var checkoutDetailsFooterView: CheckoutDetailsFooterView = CheckoutDetailsFooterView()
     var checkoutButton: CheckoutButton = CheckoutButton()
+    var cancellables = Set<AnyCancellable>()
 
     public init(viewModel: CheckoutViewModel) {
         self.viewModel = viewModel
@@ -30,6 +32,7 @@ final class CheckoutViewController: UIViewController {
         addSubviews()
         initizeConstraints()
         updateUI()
+        initPublishers()
     }
 
     private func updateUI() {
@@ -41,6 +44,25 @@ final class CheckoutViewController: UIViewController {
         self.view.addSubview(checkoutDetailsInputView)
         self.view.addSubview(checkoutDetailsFooterView)
         self.view.addSubview(checkoutButton)
+    }
+
+    private func initPublishers() {
+        checkoutDetailsInputView.emailAddressTextField.textPublisher()
+            .receive(on: RunLoop.main)
+            .assign(to: \.emailText, on: viewModel)
+            .store(in: &cancellables)
+        checkoutDetailsInputView.creditCardTextField.textPublisher()
+            .receive(on: RunLoop.main)
+            .assign(to: \.ccInfo, on: viewModel)
+            .store(in: &cancellables)
+        checkoutDetailsInputView.expiryDateTextField.textPublisher()
+            .receive(on: RunLoop.main)
+            .assign(to: \.expiryInfo, on: viewModel)
+            .store(in: &cancellables)
+        checkoutDetailsInputView.cvvTextField.textPublisher()
+            .receive(on: RunLoop.main)
+            .assign(to: \.cvvInfo, on: viewModel)
+            .store(in: &cancellables)
     }
 }
 

@@ -148,28 +148,28 @@ final class CheckoutDetailsInputView: UIView {
         return label
     }()
 
-    private lazy var emailAddressTextField: CheckoutTextField = {
+    public lazy var emailAddressTextField: CheckoutTextField = {
         let textfield = CheckoutTextField()
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "Enter Your Email"
         return textfield
     }()
 
-    private lazy var creditCardTextField: CheckoutTextField = {
+    public lazy var creditCardTextField: CheckoutTextField = {
         let textfield = CheckoutTextField()
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "xxxx xxxx xxxx xxxx"
         return textfield
     }()
 
-    private lazy var expiryDateTextField: CheckoutTextField = {
+    public lazy var expiryDateTextField: CheckoutTextField = {
         let textfield = CheckoutTextField()
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "mm / yy"
         return textfield
     }()
 
-    private lazy var cvvTextField: CheckoutTextField = {
+    public lazy var cvvTextField: CheckoutTextField = {
         let textfield = CheckoutTextField()
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "xxx"
