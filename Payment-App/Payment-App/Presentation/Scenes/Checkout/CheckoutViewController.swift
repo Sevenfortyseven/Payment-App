@@ -53,15 +53,25 @@ final class CheckoutViewController: UIViewController {
             .store(in: &cancellables)
         checkoutDetailsInputView.creditCardTextField.textPublisher()
             .receive(on: RunLoop.main)
-            .assign(to: \.ccInfo, on: viewModel)
+            .sink(receiveValue: { [weak self] ccText in
+                self?.viewModel.ccInfo = ccText
+                self?.checkoutDetailsInputView.creditCardImage = self?.viewModel.creditCardImage
+                self?.checkoutDetailsInputView.formattedCCText = self?.viewModel.formatCreditCardText(ccText)
+            })
             .store(in: &cancellables)
         checkoutDetailsInputView.expiryDateTextField.textPublisher()
             .receive(on: RunLoop.main)
-            .assign(to: \.expiryInfo, on: viewModel)
+            .sink(receiveValue: { [weak self] expiryText in
+                self?.viewModel.expiryInfo = expiryText
+                self?.checkoutDetailsInputView.formattedExpiryText = self?.viewModel.formatExpiryDateText(expiryText)
+            })
             .store(in: &cancellables)
         checkoutDetailsInputView.cvvTextField.textPublisher()
             .receive(on: RunLoop.main)
-            .assign(to: \.cvvInfo, on: viewModel)
+            .sink(receiveValue: { [weak self] cvvText in
+                self?.viewModel.cvvInfo = cvvText
+                self?.checkoutDetailsInputView.formattedCVVText = self?.viewModel.formatCVVText(cvvText)
+            })
             .store(in: &cancellables)
     }
 }

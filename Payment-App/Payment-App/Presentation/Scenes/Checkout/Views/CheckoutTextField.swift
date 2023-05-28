@@ -23,6 +23,24 @@ final class CheckoutTextField: UITextField {
         self.autocapitalizationType = .none
         self.borderStyle = .roundedRect
         self.textColor = .darkGray
+        self.backgroundColor = .systemBackground
         self.heightAnchor.constraint(equalToConstant: Constants.Height.checkoutTextField).isActive = true
+        self.translatesAutoresizingMaskIntoConstraints = false
+        setKeyboardToolbarItem()
+    }
+
+    private func setKeyboardToolbarItem() {
+        let doneButtonToolbar = UIToolbar()
+        doneButtonToolbar.tintColor = .black
+        doneButtonToolbar.barTintColor = .systemGray6
+        doneButtonToolbar.sizeToFit()
+        let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        doneButtonToolbar.items = [flexBarButton, doneBarButton]
+        self.inputAccessoryView = doneButtonToolbar
+    }
+
+    @objc private func doneButtonTapped() {
+        self.resignFirstResponder()
     }
 }

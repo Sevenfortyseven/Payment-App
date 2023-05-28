@@ -16,6 +16,30 @@ final class CheckoutDetailsInputView: UIView {
         initialize()
     }
 
+    public var creditCardImage: UIImage? {
+        didSet {
+            creditCardTextField.leftView = UIImageView(image: creditCardImage)
+        }
+    }
+
+    public var formattedCCText: String? {
+        didSet {
+            creditCardTextField.text = formattedCCText
+        }
+    }
+
+    public var formattedExpiryText: String? {
+        didSet {
+            expiryDateTextField.text = formattedExpiryText
+        }
+    }
+
+    public var formattedCVVText: String? {
+        didSet {
+            cvvTextField.text = formattedCVVText
+        }
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -152,13 +176,19 @@ final class CheckoutDetailsInputView: UIView {
         let textfield = CheckoutTextField()
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "Enter Your Email"
+        textfield.keyboardType = .emailAddress
         return textfield
     }()
 
     public lazy var creditCardTextField: CheckoutTextField = {
         let textfield = CheckoutTextField()
+        let leftImageView = UIImageView(image: AssetImage.ccBlank)
+        textfield.leftView = leftImageView
+        textfield.leftViewMode = .always
+        textfield.contentMode = .scaleAspectFit
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "xxxx xxxx xxxx xxxx"
+        textfield.keyboardType = .numberPad
         return textfield
     }()
 
@@ -166,6 +196,7 @@ final class CheckoutDetailsInputView: UIView {
         let textfield = CheckoutTextField()
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "mm / yy"
+        textfield.keyboardType = .numberPad
         return textfield
     }()
 
@@ -173,6 +204,7 @@ final class CheckoutDetailsInputView: UIView {
         let textfield = CheckoutTextField()
         textfield.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         textfield.placeholder = "xxx"
+        textfield.keyboardType = .numberPad
         return textfield
     }()
 }

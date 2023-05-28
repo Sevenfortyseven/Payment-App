@@ -66,7 +66,7 @@ class CheckoutDetailsFooterView: UIView {
     private lazy var VStack: UIStackView = {
         let VStack = UIStackView()
         VStack.translatesAutoresizingMaskIntoConstraints = false
-        VStack.distribution = .fillProportionally
+        VStack.distribution = .fill
         VStack.alignment = .leading
         VStack.spacing = Constants.Spacing.medium
         VStack.axis = .vertical
