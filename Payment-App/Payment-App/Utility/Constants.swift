@@ -27,4 +27,10 @@ enum Constants {
         static let checkoutTextField: CGFloat = 50.0
         static let roundButton: CGFloat = 50.0
     }
+
+    enum CharacterLength {
+        static let creditCard: Int = 19
+        static let expiryDate: Int = 5
+        static let cvv = 3
+    }
 }

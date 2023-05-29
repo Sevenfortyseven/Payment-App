@@ -25,18 +25,27 @@ final class CheckoutDetailsInputView: UIView {
     public var formattedCCText: String? {
         didSet {
             creditCardTextField.text = formattedCCText
+            if formattedCCText?.count == Constants.CharacterLength.creditCard {
+                expiryDateTextField.becomeFirstResponder()
+            }
         }
     }
 
     public var formattedExpiryText: String? {
         didSet {
             expiryDateTextField.text = formattedExpiryText
+            if formattedExpiryText?.count == Constants.CharacterLength.expiryDate {
+                cvvTextField.becomeFirstResponder()
+            }
         }
     }
 
     public var formattedCVVText: String? {
         didSet {
             cvvTextField.text = formattedCVVText
+            if formattedCVVText?.count == Constants.CharacterLength.cvv {
+                cvvTextField.resignFirstResponder()
+            }
         }
     }
 
