@@ -20,6 +20,7 @@
 		9F2558502A23B84800D5E912 /* CheckoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F25584F2A23B84700D5E912 /* CheckoutButton.swift */; };
 		9F2558562A23C91200D5E912 /* UITextField+TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */; };
 		9F341B622A23F0DA00948AB6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F341B612A23F0DA00948AB6 /* Assets.swift */; };
+		9F341B642A2417CA00948AB6 /* TextFieldInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F341B632A2417CA00948AB6 /* TextFieldInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9F25584F2A23B84700D5E912 /* CheckoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutButton.swift; path = ../../../../../../../../Documents/CheckoutButton.swift; sourceTree = "<group>"; };
 		9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextPublisher.swift"; sourceTree = "<group>"; };
 		9F341B612A23F0DA00948AB6 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		9F341B632A2417CA00948AB6 /* TextFieldInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		9F2558252A235A8400D5E912 /* Payment-App */ = {
 			isa = PBXGroup;
 			children = (
+				9F341B662A2417D600948AB6 /* Entities */,
 				9F2558482A237FD500D5E912 /* Extensions */,
 				9F2558452A2374BA00D5E912 /* Utility */,
 				9F25583B2A235ACB00D5E912 /* Resources */,
@@ -92,6 +95,7 @@
 		9F25583B2A235ACB00D5E912 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F341B612A23F0DA00948AB6 /* Assets.swift */,
 				9F25582F2A235A8600D5E912 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -128,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				9F2558462A2374C400D5E912 /* Constants.swift */,
-				9F341B612A23F0DA00948AB6 /* Assets.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -150,6 +153,14 @@
 				9F25584F2A23B84700D5E912 /* CheckoutButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9F341B662A2417D600948AB6 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9F341B632A2417CA00948AB6 /* TextFieldInfo.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 				9F2558442A2370F800D5E912 /* CheckoutDetailsInputView.swift in Sources */,
 				9F25584A2A23801E00D5E912 /* CheckoutTextField.swift in Sources */,
 				9F25582B2A235A8400D5E912 /* CheckoutViewController.swift in Sources */,
+				9F341B642A2417CA00948AB6 /* TextFieldInfo.swift in Sources */,
 				9F2558562A23C91200D5E912 /* UITextField+TextPublisher.swift in Sources */,
 				9F2558272A235A8400D5E912 /* AppDelegate.swift in Sources */,
 				9F2558292A235A8400D5E912 /* SceneDelegate.swift in Sources */,

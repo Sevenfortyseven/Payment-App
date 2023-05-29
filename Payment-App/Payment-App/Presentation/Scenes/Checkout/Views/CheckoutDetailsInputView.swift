@@ -40,6 +40,34 @@ final class CheckoutDetailsInputView: UIView {
         }
     }
 
+    public var emailErrorVisible: Bool = false {
+        didSet {
+            if emailErrorVisible {
+                UIView.animate(withDuration: 0.2) {
+                    self.emailError.alpha = 1
+                }
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    self.emailError.alpha = 0
+                }
+            }
+        }
+    }
+
+    public var expiryErrorVisible: Bool = false {
+        didSet {
+            if expiryErrorVisible {
+                UIView.animate(withDuration: 0.2) {
+                    self.expiryError.alpha = 1
+                }
+            } else {
+                UIView.animate(withDuration: 0.2) {
+                    self.expiryError.alpha = 0
+                }
+            }
+        }
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -48,6 +76,7 @@ final class CheckoutDetailsInputView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.addSubviews()
         self.initializeConstraints()
+        self.updateUI()
     }
 
     private func addSubviews() {
@@ -59,13 +88,19 @@ final class CheckoutDetailsInputView: UIView {
         HStack.addArrangedSubview(cvvVStack)
         EmailVStack.addArrangedSubview(emailAddressLabel)
         EmailVStack.addArrangedSubview(emailAddressTextField)
+        EmailVStack.addArrangedSubview(emailError)
         ccVSTack.addArrangedSubview(ccLabel)
         ccVSTack.addArrangedSubview(creditCardTextField)
         expiryVStack.addArrangedSubview(expiryDateLabel)
         expiryVStack.addArrangedSubview(expiryDateTextField)
+        expiryVStack.addSubview(expiryError)
         cvvVStack.addArrangedSubview(cvvLabel)
         cvvVStack.addArrangedSubview(cvvTextField)
+    }
 
+    private func updateUI() {
+        EmailVStack.setCustomSpacing(Constants.Spacing.small, after: emailAddressTextField)
+        expiryVStack.setCustomSpacing(Constants.Spacing.small, after: expiryError)
     }
 
     private func initializeConstraints() {
@@ -80,6 +115,7 @@ final class CheckoutDetailsInputView: UIView {
         constraints.append(creditCardTextField.trailingAnchor.constraint(equalTo: VStack.trailingAnchor))
         constraints.append(HStack.leadingAnchor.constraint(equalTo: VStack.leadingAnchor))
         constraints.append(HStack.trailingAnchor.constraint(equalTo: VStack.trailingAnchor))
+        constraints.append(expiryError.topAnchor.constraint(equalTo: HStack.bottomAnchor, constant: Constants.Spacing.small))
         NSLayoutConstraint.activate(constraints)
     }
 
@@ -96,17 +132,17 @@ final class CheckoutDetailsInputView: UIView {
     }()
 
     private lazy var HStack: UIStackView = {
-        let VStack = UIStackView()
-        VStack.distribution = .fillEqually
-        VStack.alignment = .fill
-        VStack.spacing = Constants.Spacing.medium
-        VStack.axis = .horizontal
-        return VStack
+        let HStack = UIStackView()
+        HStack.distribution = .fillEqually
+        HStack.alignment = .fill
+        HStack.spacing = Constants.Spacing.medium
+        HStack.axis = .horizontal
+        return HStack
     }()
 
     private lazy var EmailVStack: UIStackView = {
         let VStack = UIStackView()
-        VStack.distribution = .fillEqually
+        VStack.distribution = .fill
         VStack.alignment = .fill
         VStack.spacing = Constants.Spacing.small
         VStack.axis = .vertical
@@ -124,7 +160,7 @@ final class CheckoutDetailsInputView: UIView {
 
     private lazy var expiryVStack: UIStackView = {
         let VStack = UIStackView()
-        VStack.distribution = .fillEqually
+        VStack.distribution = .fill
         VStack.alignment = .fill
         VStack.spacing = Constants.Spacing.small
         VStack.axis = .vertical
@@ -148,6 +184,16 @@ final class CheckoutDetailsInputView: UIView {
         return label
     }()
 
+    private lazy var emailError: UILabel = {
+        let error = UILabel()
+        error.text = "Invalid Email Format"
+        error.textColor = .red
+        error.font = .preferredFont(forTextStyle: .footnote, compatibleWith: .init(legibilityWeight: .regular))
+        error.alpha = 0
+        return error
+    }()
+
+
     private lazy var ccLabel: UILabel = {
         let label = UILabel()
         label.text = "Credit Card Number"
@@ -162,6 +208,16 @@ final class CheckoutDetailsInputView: UIView {
         label.textColor = .gray
         label.font = .preferredFont(forTextStyle: .body, compatibleWith: .init(legibilityWeight: .regular))
         return label
+    }()
+
+    private lazy var expiryError: UILabel = {
+        let error = UILabel()
+        error.text = "Invalid Expiry Date"
+        error.translatesAutoresizingMaskIntoConstraints = false
+        error.textColor = .red
+        error.font = .preferredFont(forTextStyle: .footnote, compatibleWith: .init(legibilityWeight: .regular))
+        error.alpha = 0
+        return error
     }()
 
     private lazy var cvvLabel: UILabel = {

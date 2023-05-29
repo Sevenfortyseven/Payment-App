@@ -47,31 +47,80 @@ final class CheckoutViewController: UIViewController {
     }
 
     private func initPublishers() {
-        checkoutDetailsInputView.emailAddressTextField.textPublisher()
+        checkoutDetailsInputView.emailAddressTextField.publisher(for: \.text)
+            .compactMap { $0 }
+            .dropFirst()
             .receive(on: RunLoop.main)
-            .assign(to: \.emailText, on: viewModel)
+            .sink(receiveValue: { [weak self] emailText in
+                guard let self else { return }
+                self.viewModel.emailInfo.text = emailText
+                self.checkoutDetailsInputView.emailErrorVisible = self.viewModel.isInvalidEmail(emailText)
+            })
             .store(in: &cancellables)
         checkoutDetailsInputView.creditCardTextField.textPublisher()
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] ccText in
-                self?.viewModel.ccInfo = ccText
+                self?.viewModel.ccInfo.text = ccText
                 self?.checkoutDetailsInputView.creditCardImage = self?.viewModel.creditCardImage
                 self?.checkoutDetailsInputView.formattedCCText = self?.viewModel.formatCreditCardText(ccText)
-            })
-            .store(in: &cancellables)
-        checkoutDetailsInputView.expiryDateTextField.textPublisher()
-            .receive(on: RunLoop.main)
-            .sink(receiveValue: { [weak self] expiryText in
-                self?.viewModel.expiryInfo = expiryText
-                self?.checkoutDetailsInputView.formattedExpiryText = self?.viewModel.formatExpiryDateText(expiryText)
             })
             .store(in: &cancellables)
         checkoutDetailsInputView.cvvTextField.textPublisher()
             .receive(on: RunLoop.main)
             .sink(receiveValue: { [weak self] cvvText in
-                self?.viewModel.cvvInfo = cvvText
+                self?.viewModel.cvvInfo.text = cvvText
                 self?.checkoutDetailsInputView.formattedCVVText = self?.viewModel.formatCVVText(cvvText)
             })
+            .store(in: &cancellables)
+
+        let emailTextDidChangePublisher = NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: checkoutDetailsInputView.emailAddressTextField)
+            .compactMap { ($0.object as? UITextField)?.text }
+
+        let emailTextDidEndEditingPublisher = NotificationCenter.default
+            .publisher(for: UITextField.textDidEndEditingNotification, object: checkoutDetailsInputView.emailAddressTextField)
+            .compactMap { ($0.object as? UITextField)?.text }
+
+        let expiryTextDidChangePublisher = NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: checkoutDetailsInputView.expiryDateTextField)
+            .compactMap { ($0.object as? UITextField)?.text }
+
+        let expiryTextDidEndEditingPublisher = NotificationCenter.default
+            .publisher(for: UITextField.textDidEndEditingNotification, object: checkoutDetailsInputView.expiryDateTextField)
+            .compactMap { ($0.object as? UITextField)?.text }
+
+        emailTextDidChangePublisher
+            .sink(receiveValue: { [weak self] emailText in
+                guard let self else { return }
+                self.viewModel.emailInfo.text = emailText
+            })
+            .store(in: &cancellables)
+
+        emailTextDidEndEditingPublisher
+            .sink(receiveValue: { [weak self] emailText in
+                guard let self else { return }
+                self.checkoutDetailsInputView.emailErrorVisible = self.viewModel.isInvalidEmail(emailText)
+            })
+            .store(in: &cancellables)
+
+        expiryTextDidChangePublisher
+            .sink(receiveValue: { [weak self] expiryText in
+                self?.viewModel.expiryInfo.text = expiryText
+                self?.checkoutDetailsInputView.formattedExpiryText = self?.viewModel.formatExpiryDateText(expiryText)
+            })
+            .store(in: &cancellables)
+
+        expiryTextDidEndEditingPublisher
+            .sink(receiveValue: { [weak self] expiryText in
+                guard let self else { return }
+                self.checkoutDetailsInputView.expiryErrorVisible = self.viewModel.isInvalidExpiryDate(expiryText)
+            })
+            .store(in: &cancellables)
+
+        viewModel.isValidPublisher
+            .sink { [weak self] isValid in
+                self?.checkoutButton.shouldEnablePayment = isValid
+            }
             .store(in: &cancellables)
     }
 }
