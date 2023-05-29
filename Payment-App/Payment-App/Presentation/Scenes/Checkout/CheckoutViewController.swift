@@ -122,6 +122,23 @@ final class CheckoutViewController: UIViewController {
                 self?.checkoutButton.shouldEnablePayment = isValid
             }
             .store(in: &cancellables)
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isLoading, on: checkoutButton)
+            .store(in: &cancellables)
+
+        checkoutButton.buttonAction = { [weak self ] in
+            // Simulate a task being performed (e.g., network request)
+            let vc = self?.viewModel.processPayment()
+            self?.view.isUserInteractionEnabled = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self?.viewModel.isLoading = false
+                self?.view.isUserInteractionEnabled = true
+                self?.present(vc ?? UIViewController(), animated: true)
+            }
+
+        }
+
     }
 }
 

@@ -10,6 +10,8 @@ import Combine
 
 final class CheckoutViewModel {
 
+    @Published var isLoading: Bool = false
+
     var emailInfo: TextFieldInfo
     var ccInfo: TextFieldInfo
     var expiryInfo: TextFieldInfo
@@ -200,4 +202,11 @@ final class CheckoutViewModel {
                 .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
         }
+
+    public func processPayment() -> UIViewController {
+        // Simulate a task being performed (e.g., network request)
+        isLoading = true
+        let vc = SuccessViewController()
+        return vc
+    }
 }

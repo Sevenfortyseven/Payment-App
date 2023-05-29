@@ -21,6 +21,7 @@
 		9F2558562A23C91200D5E912 /* UITextField+TextPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */; };
 		9F341B622A23F0DA00948AB6 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F341B612A23F0DA00948AB6 /* Assets.swift */; };
 		9F341B642A2417CA00948AB6 /* TextFieldInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F341B632A2417CA00948AB6 /* TextFieldInfo.swift */; };
+		9F341B692A24294E00948AB6 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F341B682A24294E00948AB6 /* SuccessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		9F2558552A23C91200D5E912 /* UITextField+TextPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+TextPublisher.swift"; sourceTree = "<group>"; };
 		9F341B612A23F0DA00948AB6 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		9F341B632A2417CA00948AB6 /* TextFieldInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInfo.swift; sourceTree = "<group>"; };
+		9F341B682A24294E00948AB6 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		9F25583F2A235B0E00D5E912 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9F341B672A24294500948AB6 /* Success */,
 				9F2558402A236D0500D5E912 /* Checkout */,
 			);
 			path = Scenes;
@@ -161,6 +164,14 @@
 				9F341B632A2417CA00948AB6 /* TextFieldInfo.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		9F341B672A24294500948AB6 /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				9F341B682A24294E00948AB6 /* SuccessViewController.swift */,
+			);
+			path = Success;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 				9F2558292A235A8400D5E912 /* SceneDelegate.swift in Sources */,
 				9F2558422A236D1500D5E912 /* CheckoutViewModel.swift in Sources */,
 				9F2558472A2374C500D5E912 /* Constants.swift in Sources */,
+				9F341B692A24294E00948AB6 /* SuccessViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
